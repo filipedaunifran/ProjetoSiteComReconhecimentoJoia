@@ -1,8 +1,8 @@
 /* ================================
-   AI Vision Lab — Main Stylesheet
+   AI Vision Lab — style.css
    ================================ */
 
-/* ---------- Variables ---------- */
+/* ---------- Variáveis ---------- */
 :root {
   --bg-dark: #070616;
   --bg-purple: #120a2e;
@@ -16,12 +16,12 @@
   --success: #7ee7c5;
   --danger: #ff7a7a;
 
+  --glass: rgba(255, 255, 255, 0.055);
+  --glass-light: rgba(255, 255, 255, 0.10);
+  --glass-dark: rgba(0, 0, 0, 0.18);
+
   --border: rgba(255, 255, 255, 0.11);
   --border-soft: rgba(255, 255, 255, 0.075);
-
-  --glass: rgba(255, 255, 255, 0.055);
-  --glass-strong: rgba(255, 255, 255, 0.10);
-  --glass-dark: rgba(0, 0, 0, 0.18);
 
   --radius-sm: 14px;
   --radius-md: 18px;
@@ -55,7 +55,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- Background Effects ---------- */
+/* ---------- Fundo ---------- */
 body::before {
   content: "";
   position: fixed;
@@ -138,9 +138,9 @@ body::after {
   }
 }
 
-/* ---------- Layout ---------- */
+/* ---------- Layout geral ---------- */
 .page {
-  width: min(1180px, calc(100% - 40px));
+  width: min(1260px, calc(100% - 40px));
   margin: 0 auto;
   padding: 24px 0 46px;
 }
@@ -149,7 +149,7 @@ body::after {
   display: none;
 }
 
-/* ---------- Navigation ---------- */
+/* ---------- Navegação ---------- */
 .nav {
   height: 68px;
   display: flex;
@@ -212,7 +212,7 @@ body::after {
   backdrop-filter: blur(14px);
 }
 
-/* ---------- Buttons ---------- */
+/* ---------- Botões ---------- */
 .btn {
   border: 0;
   padding: 13px 18px;
@@ -338,7 +338,7 @@ h1 {
   font-size: 12px;
 }
 
-/* ---------- Classifier Card ---------- */
+/* ---------- Card do classificador ---------- */
 .showcase {
   position: relative;
   min-height: 550px;
@@ -393,7 +393,7 @@ h1 {
   background: rgba(255, 255, 255, 0.28);
 }
 
-/* ---------- Mode Tabs ---------- */
+/* ---------- Abas ---------- */
 .mode-selector {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -428,7 +428,7 @@ h1 {
   box-shadow: 0 12px 28px rgba(240, 106, 169, 0.18);
 }
 
-/* ---------- Camera ---------- */
+/* ---------- Câmera ---------- */
 .camera-instructions {
   display: none;
   margin-bottom: 14px;
@@ -502,7 +502,7 @@ h1 {
   line-height: 1.5;
 }
 
-/* ---------- Results ---------- */
+/* ---------- Resultado ---------- */
 .result-panel {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -545,7 +545,7 @@ h1 {
   font-weight: 800;
 }
 
-/* ---------- Chart & History ---------- */
+/* ---------- Gráfico e histórico ---------- */
 .mini-chart {
   margin-top: 14px;
   padding: 16px;
@@ -589,15 +589,20 @@ h1 {
   margin-top: 14px;
 }
 
-/* ---------- About / How It Works ---------- */
+/* ==================================================
+   APRESENTAÇÃO + COMO FUNCIONA
+   Ajustado: mais largo + cards embaixo + quadrados
+   ================================================== */
+
 .about-section {
   width: 100%;
   margin-top: 72px;
 }
 
 .about-card {
-  width: 100%;
-  padding: clamp(22px, 4vw, 34px);
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 42px);
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.045));
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -606,7 +611,8 @@ h1 {
 }
 
 .about-intro {
-  max-width: 760px;
+  width: 100%;
+  max-width: 780px;
 }
 
 .section-kicker {
@@ -622,29 +628,31 @@ h1 {
 }
 
 .about-intro h2 {
-  max-width: 720px;
+  max-width: 760px;
   margin-bottom: 14px;
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 0.96;
-  letter-spacing: -0.065em;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
 }
 
 .about-intro p {
-  max-width: 640px;
+  max-width: 660px;
   color: var(--muted);
   font-size: 15px;
   line-height: 1.7;
 }
 
 .steps-panel {
+  width: 100%;
+  margin-top: 32px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 28px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
 .step-item {
   aspect-ratio: 1 / 1;
+  min-width: 0;
   padding: 18px;
   border-radius: var(--radius-lg);
   background: var(--glass-dark);
@@ -652,7 +660,6 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 12px;
   transition: var(--transition);
 }
 
@@ -662,8 +669,9 @@ h1 {
 }
 
 .step-item span {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
   border-radius: 16px;
   display: grid;
   place-items: center;
@@ -673,9 +681,13 @@ h1 {
   font-weight: 800;
 }
 
+.step-item div {
+  min-width: 0;
+}
+
 .step-item h3 {
-  margin-bottom: 7px;
-  font-size: clamp(16px, 2vw, 20px);
+  margin-bottom: 8px;
+  font-size: clamp(16px, 1.4vw, 20px);
   line-height: 1.05;
   letter-spacing: -0.035em;
 }
@@ -683,10 +695,10 @@ h1 {
 .step-item p {
   color: var(--muted);
   font-size: 13px;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
-/* ---------- Future Modules ---------- */
+/* ---------- Módulos futuros ---------- */
 .module-section {
   margin-top: 72px;
   transition: 0.35s ease;
@@ -762,7 +774,7 @@ h1 {
   font-size: 12px;
 }
 
-/* ---------- Live Mode ---------- */
+/* ---------- Modo ao vivo ---------- */
 body.live-mode .page {
   padding-bottom: 24px;
 }
@@ -812,14 +824,14 @@ body.live-mode .live-actions {
   display: grid;
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 1020px) {
+/* ---------- Responsivo ---------- */
+@media (max-width: 1100px) {
   .steps-panel {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .step-item {
-    aspect-ratio: 1 / 0.72;
+    aspect-ratio: 1 / 0.65;
   }
 }
 
@@ -845,7 +857,7 @@ body.live-mode .live-actions {
 
 @media (max-width: 620px) {
   .page {
-    width: min(100% - 26px, 1180px);
+    width: min(100% - 26px, 1260px);
     padding-top: 14px;
   }
 
@@ -874,12 +886,12 @@ body.live-mode .live-actions {
   }
 
   .about-card {
-    padding: 20px;
+    padding: 22px;
     border-radius: 26px;
   }
 
   .about-intro h2 {
-    font-size: clamp(34px, 12vw, 48px);
+    font-size: clamp(36px, 12vw, 50px);
   }
 
   .step-item {
