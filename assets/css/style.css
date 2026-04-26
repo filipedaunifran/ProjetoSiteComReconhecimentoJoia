@@ -656,8 +656,6 @@ h1 {
 
 .step-item {
   aspect-ratio: 1 / 1;
-  min-width: 230px;
-  min-height: 230px;
   padding: 22px;
   border-radius: var(--radius-lg);
   background: var(--glass-dark);
