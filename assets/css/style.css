@@ -606,14 +606,14 @@ h1 {
 
 .about-card {
   width: min(var(--section-width), 100%);
-  margin: 0 auto;
-  padding: 42px;
+  margin: 0 auto;                  /* ← centraliza igual ao .modules */
+  padding: clamp(30px, 4vw, 46px);
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.045));
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: var(--shadow);
   backdrop-filter: blur(22px);
-}
+}backdrop-filter: blur(22px);
 
 .about-intro {
   width: 100%;
